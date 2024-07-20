@@ -235,17 +235,30 @@ nav {
 }
 
 .intro-left {
+  position: relative;
+  height: 300px;
+  width: 700px;
   display: flex;
   align-items: center;
-  height: 470px;
-  width: 200px;
-  border-top-left-radius: 25px;
+  background-color: var(--design-color-one);
+  border-radius: 40px 50px;
 }
 
-.intro-left>img {
+.intro-left > h {
+  position: absolute;
+  top: 50px;
+  left: 55px;
+  font-family: var(--secondary-font-bold);
+  font-size: 2.5rem;
+  color: white;
+  text-transform: uppercase;
+  z-index: 5;
+}
+
+.intro-left > img {
   position: relative;
   top: -30px;
-  left: -35px;
+  left: 250px;
   width: 450px;
   animation-name: fade-in;
   animation-delay: var(--delay-1);
@@ -255,41 +268,20 @@ nav {
 }
 
 .intro-right {
-  width: 550px;
-  height: 200px;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  background-color: var(--design-color-one);
-  border-top-right-radius: 25px;
 }
 
-.intro-right>h,
 .intro-right>p,
-.intro-right>.links,
-.intro-right .buttons {
+.intro-right>.links {
   position: relative;
-  top: 135px;
+  top: 60px;
 }
 
-.intro-right>h,
-.intro-right>p {
-  animation-name: fade-in;
-  animation-duration: var(--load-time);
-  animation-timing-function: ease-out;
-  animation-fill-mode: forwards;
-}
-
-.intro-right>h {
-  left: 120px;
-  animation-delay: var(--delay-2);
-  text-transform: uppercase;
-  padding-bottom: 15px;
-}
-
-.intro-right>p {
-  left: 140px;
-  padding: 20px;
+.intro-right > p {
+  left: -80px;
+  padding: 30px;
   margin-bottom: 20px;
   width: 450px;
   animation-delay: var(--delay-3);
@@ -298,16 +290,14 @@ nav {
   color: white;
   background-color: black;
   border-radius: 20px;
-}
-
-.intro-right > h {
-  font-size: 2.5rem;
-  font-family: var(--secondary-font-bold);
-  color: white;
+  animation-name: fade-in;
+  animation-duration: var(--load-time);
+  animation-timing-function: ease-out;
+  animation-fill-mode: forwards;
 }
 
 .intro-right > .links {
-  left: 120px;
+  left: -80px;
   display: flex;
   gap: 20px;
 }
