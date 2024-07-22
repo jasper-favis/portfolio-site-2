@@ -187,17 +187,9 @@ html {
   --primary-font-heavy-bold: Raleway-ExtraBold, Helvetica;
   --secondary-font-normal: Oswald-Medium, Helvetica;
   --secondary-font-bold: Oswald-SemiBold, Helvetica;
-  --primary-font-size: 0.8rem;
-  --font-size-nav: 1.2rem;
+  --font-size-body: 1.2rem;
   --font-size-header: 2.5rem;
-  --initial-bg-color: black;
-  --primary-bg-color: white;
-  --secondary-bg-color: white;
-  --primary-font-color: black;
-  --design-color-one: rgb(57, 131, 201);
-  --load-time: 0.6s;
-  --longer-load-time: 1s;
-  --nav-delay: 0.6s;
+  --color-theme-1: rgb(57, 131, 201);
   --delay-1: 0.2s;
   --delay-2: 0.4s;
   --delay-3: 0.6s;
@@ -250,7 +242,7 @@ nav {
 footer {
   animation-name: fade-in;
   animation-delay: var(--delay-4);
-  animation-duration: var(--load-time);
+  animation-duration: var(--delay-3);
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
@@ -272,11 +264,11 @@ nav {
   justify-content: space-between;
   align-items: center;
   text-transform: uppercase;
-  font-size: 1rem;
+  font-size: var(--font-size-nav);
   font-family: var(--secondary-font-normal);
   animation-name: slide-from-top;
   animation-delay: var(--delay-3);
-  animation-duration: var(--load-time);
+  animation-duration: var(--delay-3);
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
@@ -287,8 +279,8 @@ nav {
   display: flex;
   align-items: center;
   text-decoration: none;
-  font-size: 1.3rem;
-  font-family: var(--primary-font-bold);
+  font-size: 1.8rem;
+  font-family: var(--secondary-font-bold);
   color: black;
 }
 
@@ -311,7 +303,7 @@ nav {
 
 #nav-links > li > a:hover {
   color: var(--secondary-font-color);
-  background-color: var(--design-color-one);
+  background-color: var(--color-theme-1);
   transition: background-color 0.4s, color 0.4s;
 }
 
@@ -324,7 +316,7 @@ nav {
 }
 
 #nav-links > li:last-child {
-  background-color: black;
+  background-color: var(--color-theme-1);
 }
 
 #nav-links > li:last-child > a {
@@ -343,9 +335,10 @@ nav {
   height: 300px;
   display: flex;
   align-items: center;
-  border-radius: 5em;
-  background-color: var(--design-color-one);
-  box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
+  /* border-radius: 3em; */
+  /* background-color: var(--color-theme-1); */
+  /* box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5); */
+  border: 5px solid black;
   animation-name: fade-in-from-right-50-25-0;
   animation-delay: var(--delay-2);
   animation-duration: 1s;
@@ -360,11 +353,11 @@ nav {
   width: 400px;
   font-family: var(--secondary-font-bold);
   font-size: 2.7rem;
-  color: white;
+  color: black;
   text-transform: uppercase;
   animation-name: fade-in-from-right-50;
   animation-delay: var(--delay-1);
-  animation-duration: var(--load-time);
+  animation-duration: var(--delay-3);
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
@@ -388,15 +381,15 @@ nav {
 }
 
 #text-and-links > p {
-  padding: 30px;
+  padding: 40px;
   margin-bottom: 20px;
-  width: 400px;
+  width: 450px;
   font-family: var(--primary-font-bold);
-  font-size: 1.4rem;
+  font-size: var(--font-size-body);
   color: black;
   background-color: white;
-  border-radius: 2em;
-  box-shadow: -10px 10px 15px rgba(0, 0, 0, 0.5);
+  /* border-radius: 1em; */
+  box-shadow: -10px 10px 25px rgba(0, 0, 0, 0.5);
   animation-name: fade-in-from-left-50;
   animation-delay: var(--delay-1);
   animation-duration: 1s;
@@ -413,7 +406,7 @@ nav {
   display: inline-block;
   width: 80px;
   animation-name: fade-in-from-left-100;
-  animation-duration: var(--load-time);
+  animation-duration: var(--delay-3);
   animation-timing-function: ease-out;
   animation-fill-mode: forwards;
 }
@@ -450,8 +443,8 @@ nav {
 
 #image-track-wrapper {
   padding: 40px 0;
-  border-radius: 5em;
-  background-color: var(--design-color-one);
+  border-radius: 2em;
+  background-color: var(--color-theme-1);
   animation: reveal linear both;
   animation-duration: 1ms;
   animation-timeline: view();
