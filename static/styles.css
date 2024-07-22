@@ -82,6 +82,18 @@ html {
   }
 }
 
+@keyframes fade-in-from-right-20 {
+  from {
+    opacity: 0;
+    transform: translateX(20%);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
 @keyframes fade-in-from-left-50 {
   from {
     opacity: 0;
@@ -147,6 +159,18 @@ html {
   }
 }
 
+@keyframes reveal {
+  from {
+    opacity: 0;
+    width: 0;
+  }
+
+  to {
+    opacity: 1;
+    width: 80vw;
+  }
+}
+
 @keyframes theme-color-change {
   from {
     background-color: var(--initial-bg-color);
@@ -165,6 +189,7 @@ html {
   --secondary-font-bold: Oswald-SemiBold, Helvetica;
   --primary-font-size: 0.8rem;
   --font-size-nav: 1.2rem;
+  --font-size-header: 2.5rem;
   --initial-bg-color: black;
   --primary-bg-color: white;
   --secondary-bg-color: white;
@@ -178,6 +203,10 @@ html {
   --delay-3: 0.6s;
   --delay-4: 0.8s;
   --nav-height: 80px;
+  --card-height: 40vw;
+	--card-margin: 4vw;
+	--card-top-offset: 1em;
+	--outline-width: 0px;
 }
 
 body {
@@ -205,7 +234,7 @@ nav {
   transform: translateY(-100%);
 }
 
-#bg-graphic,
+#intro > .bg-graphic,
 #intro > img,
 #intro > h,
 #text-and-links > p,
@@ -307,15 +336,14 @@ nav {
   display: flex;
 }
 
-#bg-graphic {
+#intro > .bg-graphic {
   position: absolute;
   top: 100px;
-  width: 750px;
+  width: 720px;
   height: 300px;
   display: flex;
   align-items: center;
-  border-top-left-radius: 70px;
-  border-bottom-right-radius: 70px;
+  border-radius: 5em;
   background-color: var(--design-color-one);
   box-shadow: 10px 10px 25px rgba(0, 0, 0, 0.5);
   animation-name: fade-in-from-right-50-25-0;
@@ -367,7 +395,7 @@ nav {
   font-size: 1.4rem;
   color: black;
   background-color: white;
-  border-radius: 20px;
+  border-radius: 2em;
   box-shadow: -10px 10px 15px rgba(0, 0, 0, 0.5);
   animation-name: fade-in-from-left-50;
   animation-delay: var(--delay-1);
@@ -422,16 +450,24 @@ nav {
 
 #image-track-wrapper {
   padding: 40px 0;
+  border-radius: 5em;
   background-color: var(--design-color-one);
+  animation: reveal linear both;
+  animation-duration: 1ms;
+  animation-timeline: view();
+  animation-range: cover 0% cover 40%;
+  overflow-x: hidden;
 }
 
 #image-track {
+  position: relative;
   display: flex;
   gap: 4vmin;
-  position: relative;
-  left: 40%;
-  user-select: none; /* -- Prevent image highlighting -- */
   cursor: grab;
+  user-select: none; /* -- Prevent image highlighting -- */
+  animation: fade-in-from-right-20 linear both;
+  animation-timeline: view();
+  animation-range: cover 0% cover 40%;
 }
 
 #image-track:active {
@@ -439,17 +475,41 @@ nav {
 }
 
 #image-track > div {
-  height: 56vmin;
   position: relative;
 }
 
-#image-track > div > p {
+#image-track-text > h {
+  display: block;
+  padding: 15px;
+  width: 300px;
+  font-family: var(--secondary-font-bold);
+  font-size: 2.2rem;
+  color: white;
+  text-transform: uppercase;
+  background-color: black;;
+}
+
+#image-track-text > p {
+  padding: 20px;
+  font-family: var(--primary-font-bold);
+  font-size: 1.8rem;
+  color: black;
+}
+
+#image-track > .image-wrapper > p {
   position: absolute;
   font-family: var(--secondary-font-normal);
   font-size: 1.8rem;
   text-transform: uppercase;
   color: white;
   padding: 0 5px;
+}
+
+#image-track > .image-wrapper > .image {
+  width: 40vmin;
+  height: 56vmin;
+  object-fit: cover;
+  object-position: 100% center;
 }
 
 #webdev {
@@ -471,32 +531,98 @@ nav {
   background-color: black;
 }
 
-.image {
-  width: 35vmin;
-  height: 56vmin;
-  object-fit: cover;
-  object-position: 100% center;
+.card {
+	--index0: calc(var(--index) - 1); /* 0-based index */
+	--reverse-index: calc(var(--numcards) - var(--index0)); /* reverse index */
+	--reverse-index0: calc(var(--reverse-index) - 1); /* 0-based reverse index */
 }
 
-.image > .title-wrapper {
-  display: block;
-  padding: 15px;
-  background-color: black;
+@keyframes scale {
+	to {
+		transform:
+			scale(calc(1.1 - calc(0.1 * var(--reverse-index))));
+	}
 }
 
-.image > .title-wrapper > .title {
-  display: block;
+#hobbies-and-interests {
+  margin-top: 150px;
   font-family: var(--secondary-font-bold);
-  font-size: 2.2rem;
-  color: white;
+  font-size: var(--font-size-header);
   text-transform: uppercase;
 }
 
-.image > p {
-  padding: 8px;
-  font-family: var(--primary-font-bold);
-  font-size: 1.8rem;
-  color: white;
+#hobbies-and-interests,
+#cards {
+  animation: fade-in linear both;
+  animation-timeline: view();
+  animation-range: cover 0% cover 20%;
 }
+
+#cards {
+  list-style: none;
+  padding-bottom: calc(var(--numcards) * var(--card-top-offset)); /* Make place at bottom, as items will slide to that position*/
+  margin-bottom: var(--card-margin); /* Don't include the --card-margin in padding, as that will affect the scroll-timeline*/
+
+	--numcards: 4;
+	view-timeline-name: --cards-element-scrolls-in-body;
+}
+
+#card_1 {
+	--index: 1;
+}
+
+#card_2 {
+	--index: 2;
+}
+
+#card_3 {
+	--index: 3;
+}
+
+#card_4 {
+	--index: 4;
+}
+
+.card {
+	position: sticky;
+	top: 0;
+	padding-top: calc(var(--index) * var(--card-top-offset));
+}
+
+.card__content {
+	transform-origin: 50% 0%;
+	will-change: transform;
+}
+
+.card__content {
+  display: flex;
+  border-radius: 2em;
+  overflow: hidden;
+  box-shadow: 0 0.2em 1em rgba(0, 0, 0, 0.1), 0 1em 2em rgba(0, 0, 0, 0.1);
+
+	--start-range: calc(var(--index0) / var(--numcards) * 100%);
+	--end-range: calc((var(--index)) / var(--numcards) * 100%);
+
+	animation: linear scale forwards;
+	animation-timeline: --cards-element-scrolls-in-body;
+	animation-range: exit-crossing var(--start-range) exit-crossing var(--end-range);
+}
+
+.card__content > img,
+.card__content > .text-wrapper {
+  width: 50%;
+}
+
+.card__content > .text-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  font-style: var(--primary-font-bold);
+  font-size: 1.2rem;
+  color: black;
+  background-color: white;
+}
+
 
 

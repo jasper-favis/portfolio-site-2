@@ -20,7 +20,7 @@
     </nav>
 
     <div id="intro">
-      <div id="bg-graphic"></div>
+      <div class="bg-graphic"></div>
       <img src="static/assets/images/my-photo.png" alt="Profile Image">
       <h>proud father,<br>stem enthusiast,<br>and engineer!</h>
       <div id="text-and-links">
@@ -45,26 +45,62 @@
 
   <div id="image-track-wrapper">
     <div id="image-track" data-mouse-down-at="0" data-prev-percentage="0">
-      <div class="image">
-        <div class="title-wrapper">
-          <h class="title">Skills, Courses, and Projects</h>
-        </div>
+      <div id="image-track-text">
+        <h>Skills, Courses, and Projects</h>
         <p>Graduated San Jose State University with a B.S. in Computer Engineering</p>
       </div>
-      <div><p id="webdev">Web Development </p><img class="image" src="static/assets/images/stem-images/tcg pokedex thumbnail.png" draggable="false" /></div>
-      <div><p id="pov">Persistence of <br>Vision Display</p><img class="image" src="static/assets/images/stem-images/20181125_224009.jpg" draggable="false" /></div>
-      <img class="image" src="static/assets/images/stem-images/20240718_174234.jpg" draggable="false" />
-      <div><p id="pathfinder">Pathfinder <br>Algorithm Visualizer </p><img class="image" src="static/assets/images/stem-images/20240718_174251.png" draggable="false" /></div>
-      <div><p id="matrix">LED Matrix</p><img class="image" src="static/assets/images/stem-images/led-matrix.jpg" draggable="false" /></div>
-      <img class="image" src="static/assets/images/stem-images/20190214_052703.jpg" draggable="false" />
-      <div><p id="tudy">Microservices <br>Application </p><img class="image" src="static/assets/images/stem-images/project-tudy.png" draggable="false" /></div>
-      <img class="image" src="static/assets/images/stem-images/20240718_174120.jpg" draggable="false" />
-      <div><p id="cpu">Computer <br>Architecture & Design </p><img class="image" src="static/assets/images/stem-images/20240718_183153.jpg" draggable="false" /></div>
-      <img class="image" src="static/assets/images/stem-images/20240718_183339.jpg" draggable="false" /></div>
+      <div class="image-wrapper"><p id="webdev">Web Development </p><img class="image" src="static/assets/images/stem-images/tcg pokedex thumbnail.png" draggable="false" /></div>
+      <div class="image-wrapper"><p id="pov">Persistence of <br>Vision Display</p><img class="image" src="static/assets/images/stem-images/20181125_224009.jpg" draggable="false" /></div>
+      <div class="image-wrapper"><p id="pathfinder">Pathfinder <br>Algorithm Visualizer </p><img class="image" src="static/assets/images/stem-images/20240718_174251.png" draggable="false" /></div>
+      <div class="image-wrapper"><p id="matrix">LED Matrix</p><img class="image" src="static/assets/images/stem-images/led-matrix.jpg" draggable="false" /></div>
+      <div class="image-wrapper"><p id=""></p><img class="image" src="static/assets/images/stem-images/20190214_052703.jpg" draggable="false" /></div>
+      <div class="image-wrapper"><p id="tudy">Microservices <br>Application </p><img class="image" src="static/assets/images/stem-images/project-tudy.png" draggable="false" /></div>
+      <div class="image-wrapper"><p id=""></p><img class="image" src="static/assets/images/stem-images/20240718_174120.jpg" draggable="false" /></div>
+      <div class="image-wrapper"><p id="cpu">Computer <br>Architecture & Design </p><img class="image" src="static/assets/images/stem-images/20240718_183153.jpg" draggable="false" /></div>
+      <div class="image-wrapper"><p id=""></p><img class="image" src="static/assets/images/stem-images/20240718_183339.jpg" draggable="false" /></div>
     </div>
   </div>
 
-  <div class="interests"></div>
+  <h1 id="hobbies-and-interests">Hobbies and Interests</h1>
+  <ul id="cards">
+    <li class="card" id="card_1">
+      <div class="card__content">
+        <img src="static/assets/images/my-baby.jpg" alt="Image description">
+        <div class="text-wrapper">
+          <h1>Hanging out with numero uno!</h1>
+          <p></p>
+        </div>
+      </div>
+    </li>
+    <li class="card" id="card_2">
+      <div class="card__content">
+        <img src="static/assets/images/pool.png" alt="Image description">
+        <div class="text-wrapper">
+          <h1>Pocket Billiards</h1>
+          <p></p>
+        </div>
+      </div>
+    </li>
+    <li class="card" id="card_3">
+      <div class="card__content">
+        <img src="static/assets/images/arts-and-crafts.png" alt="Image description">
+        <div class="text-wrapper">
+          <h1>Arts & Crafts</h1>
+          <p></p>
+        </div>
+      </div>
+    </li>
+    <li class="card" id="card_4">
+      <div class="card__content">
+        <img src="static/assets/images/electronics.jpg" alt="Image description">
+        <div class="text-wrapper">
+          <h1>Hobby Electronics</h1>
+          <p></p>
+        </div>
+      </div>
+    </li>
+  </ul>
+
 
   <script src="scripts/main.js"></script>
 </body>

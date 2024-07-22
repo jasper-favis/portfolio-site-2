@@ -13,7 +13,6 @@ window.onload = function() {
 //   }, 400);
 // });
 
-
 const track = document.getElementById("image-track");
 
 const handleOnDown = e => track.dataset.mouseDownAt = e.clientX;
@@ -27,7 +26,7 @@ const handleOnMove = e => {
   if(track.dataset.mouseDownAt === "0") return;
   
   const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
-        maxDelta = window.innerWidth + 200;
+        maxDelta = window.innerWidth + 400;
   
   const percentage = (mouseDelta / maxDelta) * -100,
         nextPercentageUnconstrained = parseFloat(track.dataset.prevPercentage) + percentage,
@@ -36,7 +35,7 @@ const handleOnMove = e => {
   track.dataset.percentage = nextPercentage;
   
   track.animate({
-    transform: `translate(${nextPercentage}%)`
+    transform: `translate(${nextPercentage*2}%)`
   }, { duration: 1200, fill: "forwards" });
   
   for(const image of track.getElementsByClassName("image")) {
