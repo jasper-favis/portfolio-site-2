@@ -23,6 +23,11 @@ const handleOnUp = () => {
 }
 
 const handleOnMove = e => {
+  let multiplier = 2.5;
+  if(window.innerWidth <= 480) {
+    multiplier = 7.5;
+  }
+
   if(track.dataset.mouseDownAt === "0") return;
   
   const mouseDelta = parseFloat(track.dataset.mouseDownAt) - e.clientX,
@@ -35,7 +40,7 @@ const handleOnMove = e => {
   track.dataset.percentage = nextPercentage;
   
   track.animate({
-    transform: `translate(${nextPercentage*2}%)`
+    transform: `translate(${nextPercentage*multiplier}%)`
   }, { duration: 1200, fill: "forwards" });
   
   for(const image of track.getElementsByClassName("image")) {
