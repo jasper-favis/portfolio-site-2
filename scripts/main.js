@@ -3,6 +3,15 @@ window.onload = function() {
   window.scrollTo(0, 0);
 };
 
+const burgerIcon = document.querySelector("#burger-icon");
+const navLinks = document.querySelector("#nav-links");
+
+burgerIcon.addEventListener("click", mobileMenu);
+
+function mobileMenu() {
+    navLinks.classList.toggle("active");
+}
+
 // Stop transitions when resizing window.
 // let resizeTimer;
 // window.addEventListener("resize", () => {
@@ -25,7 +34,7 @@ const handleOnUp = () => {
 const handleOnMove = e => {
   let multiplier = 2.5;
   if(window.innerWidth <= 480) {
-    multiplier = 7.5;
+    multiplier = 1;
   }
 
   if(track.dataset.mouseDownAt === "0") return;

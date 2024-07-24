@@ -472,12 +472,14 @@ nav {
 }
 
 #image-track-wrapper {
+  display: flex;
+  align-items: center;
   height: 70vh;
   width: 100vw;
   max-width: 150rem;
   box-shadow: 15px 15px 25px rgba(0, 0, 0, 0.5);
   background-color: whitesmoke;
-  animation: reveal linear both;
+  animation: fade-in linear both;
   animation-duration: 1ms;
   animation-timeline: view();
   animation-range: cover 0% cover 40%;
@@ -515,10 +517,15 @@ nav {
 }
 
 #image-track-text > p {
-  padding: 20px;
+  padding: 2rem;
   font-family: var(--primary-font-bold);
   font-size: 2.4rem;
   color: black;
+}
+
+#image-track-text > img {
+  padding-left: 2rem;
+  width: 50%;
 }
 
 #image-track > .image-wrapper > p {
@@ -674,7 +681,6 @@ nav {
     justify-content: center;
     align-items: center;
     gap: 0.7rem;
-    background-color: black;
     cursor: pointer;
   }
   
@@ -682,16 +688,15 @@ nav {
     display: block;
     height: 0.2rem;
     width: 2.8rem;
-    background-color: white;
+    background-color: black;
     border-radius: 0.5rem;
   }
 
   #nav-links {
-    display: flex;
+    display: none;
     list-style: none;
     position: fixed;
-    left: -100%;
-    top: 5.5rem;
+    top: 8rem;
     flex-direction: column;
     width: 100%;
     text-align: center;
@@ -699,20 +704,12 @@ nav {
   }
 
   #nav-links.active {
-    left: 0;
+    display: flex;
   }
 
   #nav-links > li {
     padding: 2rem 0;
-    background-color: black;;
-  }
-
-  #nav-links > li > a {
-    color: white;
-  }
-
-  #nav-links > li:hover {
-    background-color: var(--color-theme-1);
+    background-color: white;
   }
   
   #intro {
@@ -729,11 +726,11 @@ nav {
   }
   
   #intro > h {
-    top: 28rem;
-    left: 10%;
+    top: 54%;
+    left: 7%;
     width: 80vw;
     font-family: var(--secondary-font-bold);
-    font-size: 2.7rem;
+    font-size: 2.5rem;
     color: black;
     letter-spacing: -0.1rem;
     text-transform: uppercase;
@@ -746,7 +743,7 @@ nav {
   }
   
   #intro > img {
-    left: 35%;
+    left: 30%;
     width: 35rem;
   }
   
@@ -810,17 +807,22 @@ nav {
   }
 
   #image-track-wrapper {
-    height: 60vh;
+    box-shadow: none;
+    height: 100vh;
     width: 100vw;
   }
 
   #image-track {
-    height: 95%;
+    height: 70%;
     touch-action: pan-y;
   }
 
   #image-track > .image-wrapper > img {
     height: 100%;
     width: 80vw;
+  }
+
+  .card__content > .text-wrapper > h1 {
+    font-size: 2.2rem;
   }
 }
